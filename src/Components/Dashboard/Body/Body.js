@@ -1,21 +1,30 @@
-
-import React from 'react';
-import './Body.css'; // Import CSS specific to the body
+import React from "react";
+import "./Body.css"; // Import CSS specific to the body
 import {
   TransactionsContainer,
   PatientsContainer,
   ExaminationsContainer,
   WideContainer,
   WeeklyRevenueContainer,
-  StatusByChannelContainer
-} from './containers'; // Import containers
+  StatusByChannelContainer,
+} from "./containers"; // Import containers
 
-import TransactionsList from '../Transaction/TransactionsList'; // Import the Transactions List component
-import RegisteredPatients from '../Patients/RegisteredPatients'; // Import the Registered Patients component
-import ExaminationList from '../Examinations/ExaminationList'; // Import the Examination List component
-import TransferToMedicalCenter from '../Transfer/TransferToMedicalCenter'; // Import the Transfer component
+import TransactionsList from "../Transaction/TransactionsList"; // Import the Transactions List component
+import RegisteredPatients from "../Patients/RegisteredPatients"; // Import the Registered Patients component
+import ExaminationList from "../Examinations/ExaminationList"; // Import the Examination List component
+import TransferToMedicalCenter from "../Transfer/TransferToMedicalCenter"; // Import the Transfer component
 
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 
 // Register the necessary components
 ChartJS.register(
@@ -36,7 +45,7 @@ const Body = ({ selectedComponent }) => {
   const progressPercent = (examinationsInProcess / totalExaminations) * 100;
 
   const handleReload = () => {
-    console.log('Reloading...');
+    console.log("Reloading...");
   };
 
   return (
@@ -44,19 +53,25 @@ const Body = ({ selectedComponent }) => {
       {/* Top Row */}
       <div className="top-row">
         <TransactionsContainer handleReload={handleReload} />
-        <PatientsContainer handleReload={handleReload} />
-        <ExaminationsContainer examinationsInProcess={examinationsInProcess} progressPercent={progressPercent} handleReload={handleReload} />
+        <div className="flex-1">
+          <PatientsContainer handleReload={handleReload} />
+          <ExaminationsContainer
+            examinationsInProcess={examinationsInProcess}
+            progressPercent={progressPercent}
+            handleReload={handleReload}
+          />
+        </div>
       </div>
 
       {/* Conditional rendering for the bottom row */}
       <div className="bottom-row">
-        {selectedComponent === 'Transactions' ? (
+        {selectedComponent === "Transactions" ? (
           <TransactionsList />
-        ) : selectedComponent === 'Patients' ? (
+        ) : selectedComponent === "Patients" ? (
           <RegisteredPatients />
-        ) : selectedComponent === 'Examinations' ? (
+        ) : selectedComponent === "Examinations" ? (
           <ExaminationList />
-        ) : selectedComponent === 'Transfer' ? (
+        ) : selectedComponent === "Transfer" ? (
           <TransferToMedicalCenter />
         ) : (
           <>

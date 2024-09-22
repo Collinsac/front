@@ -10,16 +10,16 @@ const Sidebar = ({ onItemClick }) => {
 
     return (
         <div
-            className={`sidebar-container ${isExpanded ? 'expanded' : 'collapsed'}`}
+            className={`sidebar-containers ${isExpanded ? 'expanded' : ''}`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <div className="sidebar">
-                <div className="logo-container">
+            <div className="sidebar warp">
+                <div className="logo-container block">
                     <img src="pdmd.png" alt="PDMD Logo" className="sidebar-logo" />
                 </div>
 
-                <div className="user-container">
+                <div className="user-container block">
                     <img src="USER.jpeg" alt="User" className="user-profile" />
                     {isExpanded && (
                         <div className="user-info">
@@ -29,7 +29,7 @@ const Sidebar = ({ onItemClick }) => {
                     )}
                 </div>
 
-                <nav className="sidebar-nav">
+                <nav className="sidebar-nav ">
                     <ul>
                         <li onClick={() => onItemClick('Dashboard')}><i className="bi bi-house-door"></i>{isExpanded && <span>Dashboard</span>}</li>
                         <li onClick={() => onItemClick('Patients')}><i className="bi bi-person-lines-fill"></i>{isExpanded && <span>Registered Patients</span>}</li>

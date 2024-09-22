@@ -1,8 +1,8 @@
 // src/Components/Header/Header.js
-import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import './Header.css'; // CSS specific to the header
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "./Header.css"; // CSS specific to the header
 
 const Header = () => {
   const [showNotifications, setShowNotifications] = useState(false);
@@ -17,17 +17,17 @@ const Header = () => {
       </div>
 
       {/* Search Bar - Centered */}
-      <div className="search-bar-container flex-grow-1 mx-3">
-        <div className="input-group">
-          <input
-            type="text"
-            className="form-control search-bar rounded-pill"
-            placeholder="Search"
-          />
-          <span className="search-icon">
-            <i className="bi bi-search"></i>
-          </span>
-        </div>
+      <div
+       className="d-flex form-control search-bar rounded-pill max-w"
+
+       >
+        <i className="mr-5 bi bi-search"></i>
+
+        <input
+          type="text"
+          className="border-0 ml-5 flex-grow-1"
+          placeholder="Search"
+        />
       </div>
 
       {/* Icons on the right */}
@@ -38,9 +38,11 @@ const Header = () => {
         </div>
 
         {/* Notification Icon */}
-        <div className="icon icon-spacing" 
-             onMouseEnter={() => setShowNotifications(true)} 
-             onMouseLeave={() => setShowNotifications(false)}>
+        <div
+          className="icon icon-spacing"
+          onMouseEnter={() => setShowNotifications(true)}
+          onMouseLeave={() => setShowNotifications(false)}
+        >
           <i className="bi bi-bell shake-icon"></i> {/* Notification Icon */}
           {showNotifications && (
             <div className="popover-container">
@@ -52,9 +54,11 @@ const Header = () => {
         </div>
 
         {/* Messaging Icon */}
-        <div className="icon icon-spacing" 
-             onMouseEnter={() => setShowMessages(true)} 
-             onMouseLeave={() => setShowMessages(false)}>
+        <div
+          className="icon icon-spacing"
+          onMouseEnter={() => setShowMessages(true)}
+          onMouseLeave={() => setShowMessages(false)}
+        >
           <i className="bi bi-chat-dots shake-icon"></i> {/* Messaging Icon */}
           {showMessages && (
             <div className="popover-container">
@@ -66,14 +70,17 @@ const Header = () => {
         </div>
 
         {/* Language Icon */}
-        <div className="icon icon-spacing" 
-             onMouseEnter={() => setShowLanguageOptions(true)} 
-             onMouseLeave={() => setShowLanguageOptions(false)}>
-          <i className="bi bi-translate shake-icon"></i> {/* Change Language Icon */}
+        <div
+          className="icon icon-spacing"
+          onMouseEnter={() => setShowLanguageOptions(true)}
+          onMouseLeave={() => setShowLanguageOptions(false)}
+        >
+          <i className="bi bi-translate shake-icon"></i>{" "}
+          {/* Change Language Icon */}
           {showLanguageOptions && (
             <div className="language-dropdown popover-container">
-              <p onClick={() => console.log('English selected')}>English</p>
-              <p onClick={() => console.log('French selected')}>French</p>
+              <p onClick={() => console.log("English selected")}>English</p>
+              <p onClick={() => console.log("French selected")}>French</p>
             </div>
           )}
         </div>

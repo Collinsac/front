@@ -116,7 +116,7 @@ export const WideContainer = ({ handleReload }) => (
   <div className="wide-container p-4 shadow-sm position-relative">
     <i className="bi bi-arrow-clockwise reload-icon" onClick={handleReload}></i>
     <h3 className="text-center mb-4">Monthly Transactions</h3>
-    <div className="d-flex justify-content-between align-items-center">
+    <div className="d-md-flex justify-content-between align-items-center">
       <div className="amount-section d-flex align-items-center">
         <i className="bi bi-wallet2 amount-icon"></i>
         <span className="ms-2 fw-bold">$2,000</span>
